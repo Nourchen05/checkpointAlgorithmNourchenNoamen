@@ -1,0 +1,25 @@
+ALGORITHM phraseCalcul
+VAR
+    nbc:integer:=0; //nombre de caractères
+    nbm:integer:=1; //nombre de mots 
+    nbv:integer:=0; //nombre de voyelles
+    ph:string; //la phrase
+    i:integer; //le compteur
+BEGIN
+    write("Saisir une phrase")
+    read(ph);
+    WHILE (i<ph.lenght-2) DO   // Avant le point (d'indice ph.lenght-1)
+        IF (ph[i]<>' ') THEN
+            IF ((ph[i]='a') or (ph[i]='e') or (ph[i]='i') or (ph[i]='o') or (ph[i]='u') or (ph[i]='y')) THEN
+                nbv:=nbv+1;
+            END_IF
+            i:=i+1;
+            nbc:=nbc+1;
+        ELSE
+            nbm:=nbm+1;  //si on a un espace, le nombre des mots est incrémenté de 1
+        END_IF
+    END_WHILE
+    write("Le nombre des mots = ",nbm);
+    write("Le nombre des caractères = ",nbc);
+    write("Le nombre des voyelles = ",nbv);
+END
